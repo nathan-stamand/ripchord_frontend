@@ -4,12 +4,22 @@ class App {
   }
 
   addCreateUserEventListener() {
-    const loginSubmitBtn = document.getElementById("sign-up").querySelector("form").lastElementChild;
-    loginSubmitBtn.addEventListener("click", function(e) {
+    const signUpSubmitBtn = document.getElementById("sign-up").querySelector("form").lastElementChild;
+    signUpSubmitBtn.addEventListener("click", function(e) {
       e.preventDefault();
       const username = document.getElementById("sign-up").querySelector("form").firstElementChild.value;
       const password = document.getElementById("sign-up").querySelector("form").children[3].value;
       UserAdapter.attemptCreateUser(username, password)
+    })
+  }
+
+  addLoginUserEventListener() {
+    const loginSubmitBtn = document.getElementById("sign-up").querySelector("form").children[6];
+    loginSubmitBtn.addEventListener("click", function(e) {
+      e.preventDefault();
+      const username = document.getElementById("sign-up").querySelector("form").firstElementChild.value;
+      const password = document.getElementById("sign-up").querySelector("form").children[3].value;
+      UserAdapter.attemptLoginUser(username, password)
     })
   }
 }
