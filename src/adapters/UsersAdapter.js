@@ -3,11 +3,7 @@ class UserAdapter {
     this.baseUrl = 'http://localhost:3000/api/v1/users/'
   }
 
-  getUser(id) {
-    return fetch(this.baseUrl + id).then(res => res.json())
-  }
-
-  static attemptCreateUser(username, password) {
+  createUser(username, password) {
     const userData = {
       user: {
         username: username,
@@ -23,16 +19,11 @@ class UserAdapter {
     }
 
     return fetch(this.baseUrl, userObj)
-    .then((res) => {
-      return res.json()
-    })
-    .then(json => {
-      console.log(json)
-    })
+    .then(resp => resp.json())
   }
 
 
-  static attemptLoginUser(username, password) {
+  loginUser(username, password) {
     const userData = {
       user: {
         username: username,
@@ -48,8 +39,6 @@ class UserAdapter {
     }
 
     return fetch(this.baseUrl + 'login', userObj)
-    .then(resp => {
-      console.log(resp.json())
-    })
+    .then(resp => resp.json())
   }
 }
