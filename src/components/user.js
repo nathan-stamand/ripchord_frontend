@@ -3,11 +3,16 @@ class User {
     this.username = username;
     this.password = password;
     this.adapter = new UserAdapter();
-    this.fetchAndLoadUser()
   }
 
-  fetchAndLoadUser() {
-    this.adapter.getUser(1).then(user => {
+  attemptCreateUser() {
+    this.adapter.createUser(this.username, this.password).then(user => {
+      console.log(user)
+    })
+  }
+
+  attemptLoginUser() {
+    this.adapter.loginUser(this.username, this.password).then(user => {
       console.log(user)
     })
   }
