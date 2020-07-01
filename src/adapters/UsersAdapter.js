@@ -30,4 +30,26 @@ class UserAdapter {
       console.log(json)
     })
   }
+
+
+  static attemptLoginUser(username, password) {
+    const userData = {
+      user: {
+        username: username,
+        password: password
+    }}
+
+    const userObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData)
+    }
+
+    return fetch(this.baseUrl + 'login', userObj)
+    .then(resp => {
+      console.log(resp.json())
+    })
+  }
 }
