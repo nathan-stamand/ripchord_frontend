@@ -9,7 +9,8 @@ class App {
       e.preventDefault();
       const username = document.getElementById("sign-up").querySelector("form").firstElementChild.value;
       const password = document.getElementById("sign-up").querySelector("form").children[3].value;
-      UserAdapter.attemptCreateUser(username, password)
+      let user = new User(username, password)
+      user.attemptCreateUser()
     })
   }
 
@@ -19,7 +20,8 @@ class App {
       e.preventDefault();
       const username = document.getElementById("sign-up").querySelector("form").firstElementChild.value;
       const password = document.getElementById("sign-up").querySelector("form").children[3].value;
-      UserAdapter.attemptLoginUser(username, password)
+      let user = new User(username, password)
+      user.attemptLoginUser()
     })
   }
 }
