@@ -1,6 +1,8 @@
 class App {
   constructor() {
     this.songs = new Songs();
+    this.addCreateUserEventListener();
+    this.addLoginUserEventListener();
   }
 
   addCreateUserEventListener() {
